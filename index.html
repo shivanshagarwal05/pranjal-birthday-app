@@ -9,6 +9,62 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="apple-mobile-web-app-title" content="For Punnu ♡" />
   <link rel="manifest" href="manifest.json" />
+  
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+
+  OneSignalDeferred.push(async function (OneSignal) {
+    try {
+      await OneSignal.init({
+        appId: "172e3c75-6c2c-4656-9f1e-b0f14baa7c5d",
+        serviceWorkerPath:
+          "pranjal-birthday-app/onesignal/OneSignalSDKWorker.js",
+        serviceWorkerParam: {
+          scope: "/pranjal-birthday-app/onesignal/"
+        }
+      });
+
+      const button = document.getElementById("birthday-notify");
+
+      if (!button) return;
+
+      const isInstalled =
+        window.navigator.standalone === true ||
+        window.matchMedia("(display-mode: standalone)").matches;
+
+      // On iPhone, only show this inside the installed app.
+      if (!isInstalled) return;
+
+      button.style.display = "block";
+
+      if (OneSignal.Notifications.permission) {
+        button.textContent = "Birthday notifications enabled 💗";
+        button.disabled = true;
+        return;
+      }
+
+      button.addEventListener("click", async function () {
+        try {
+          await OneSignal.Notifications.requestPermission();
+
+          if (OneSignal.Notifications.permission) {
+            button.textContent = "Birthday notifications enabled 💗";
+            button.disabled = true;
+          } else {
+            alert("Notifications were not enabled. Check iPhone Settings.");
+          }
+        } catch (error) {
+          console.error("OneSignal notification error:", error);
+          alert("Could not enable notifications. Please try again.");
+        }
+      });
+    } catch (error) {
+      console.error("OneSignal setup error:", error);
+    }
+  });
+</script>
+
   <link rel="icon" type="image/svg+xml" href="assets/icon.svg" />
   <link rel="apple-touch-icon" href="assets/icon-192.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,6 +77,32 @@
   <div class="ambient ambient-one" aria-hidden="true"></div><div class="ambient ambient-two" aria-hidden="true"></div>
   <div id="app"><div class="loading-screen"><span class="loading-heart">♡</span><p>Gathering a little magic for Punnu…</p></div></div>
   <div id="toast" role="status" aria-live="polite"></div>
+  
+<button
+  id="birthday-notify"
+  type="button"
+  style="
+    display: none;
+    position: fixed;
+    bottom: calc(22px + env(safe-area-inset-bottom));
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    width: max-content;
+    max-width: 90%;
+    padding: 15px 22px;
+    border: 1px solid #e8b4c3;
+    border-radius: 999px;
+    background: #f8dce6;
+    color: #8b3657;
+    font: 600 14px system-ui, sans-serif;
+    box-shadow: 0 8px 28px #a85c7840;
+    cursor: pointer;
+  "
+>
+  🔔 Enable Birthday Notifications 🎀
+</button>
+
   <script src="config.js"></script>
   <script type="module" src="app.js?v=spark1"></script>
 </body>
