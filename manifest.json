@@ -1,0 +1,11 @@
+{
+  "id": "./",
+  "name": "A Little Something for You",
+  "short_name": "For You 💗",
+  "description": "A private birthday countdown and collection of little surprises.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fff8fb",
+  "theme_color": "#fff1f6"
+}

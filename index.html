@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff1f6">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="For You">
+  <link rel="manifest" href="manifest.json">
+  <title>A Little Something for You 💗</title>
+  <style>
+    :root { --pink:#be185d; --rose:#fff1f6; --ink:#432435; --muted:#876b78; }
+    * { box-sizing:border-box; }
+    body {
+      margin:0; min-height:100vh; color:var(--ink);
+      font-family: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top right,#ffe0ec,transparent 42%), linear-gradient(160deg,#fff8fb,#fff0f5 60%,#fff9fc);
+    }
+    main { width:min(680px,100%); margin:auto; padding:28px 18px 48px; }
+    .top { display:flex; justify-content:space-between; align-items:center; color:var(--muted); font-size:.82rem; }
+    .pill { border:1px solid #f2c6d7; border-radius:999px; padding:7px 11px; background:#ffffff9c; }
+    .hero { text-align:center; padding:42px 8px 26px; }
+    .heart { font-size:3.4rem; filter:drop-shadow(0 8px 14px #e9a3bf66); animation: float 3s ease-in-out infinite; }
+    h1 { font-family: Georgia, serif; font-weight:500; font-size:clamp(2.2rem,8vw,3.7rem); line-height:1.05; margin:14px 0; letter-spacing:-.04em; }
+    .subtitle { max-width:420px; margin:0 auto; color:var(--muted); line-height:1.65; }
+    .card { background:#ffffffc9; border:1px solid #f4d4e0; border-radius:24px; padding:22px; box-shadow:0 18px 55px #a9446b0d; margin:16px 0; }
+    .eyebrow { text-transform:uppercase; letter-spacing:.16em; color:var(--pink); font-size:.72rem; font-weight:700; }
+    .countdown { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:16px; }
+    .time { text-align:center; padding:13px 4px; background:var(--rose); border-radius:16px; }
+    .num { font-size:1.8rem; font-weight:750; color:var(--pink); display:block; font-variant-numeric:tabular-nums; }
+    .unit { color:var(--muted); font-size:.72rem; }
+    .note { line-height:1.7; color:#674858; }
+    button { border:0; border-radius:999px; background:var(--pink); color:white; padding:13px 18px; font-size:.95rem; font-weight:650; cursor:pointer; box-shadow:0 8px 18px #be185d2b; }
+    button.secondary { background:white; color:var(--pink); border:1px solid #f0c4d5; box-shadow:none; }
+    .actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+    .hidden { display:none; }
+    footer { text-align:center; color:var(--muted); font-size:.8rem; padding:18px 0 0; }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+    @media(prefers-reduced-motion:reduce){.heart{animation:none}}
+  </style>
+</head>
+<body>
+<main>
+  <div class="top"><span class="pill">a tiny corner of the universe</span><span>♡ just for you</span></div>
+  <section class="hero">
+    <div class="heart" aria-hidden="true">💗</div>
+    <h1>Something lovely<br>is on its way.</h1>
+    <p class="subtitle">A little countdown, a few secret notes, and lots of love — made just for you.</p>
+  </section>
+
+  <section class="card" aria-live="polite">
+    <div class="eyebrow">the countdown</div>
+    <h2 id="countdown-title" style="font-family:Georgia,serif;font-weight:500;margin:9px 0 0">Until your special day</h2>
+    <div class="countdown">
+      <div class="time"><span class="num" id="days">--</span><span class="unit">days</span></div>
+      <div class="time"><span class="num" id="hours">--</span><span class="unit">hours</span></div>
+      <div class="time"><span class="num" id="minutes">--</span><span class="unit">minutes</span></div>
+      <div class="time"><span class="num" id="seconds">--</span><span class="unit">seconds</span></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="eyebrow">a note for you</div>
+    <p class="note" id="note">For the girl who can be elegant, chaotic, caring, clever, and impossibly cute — sometimes all in the same five minutes. This little world is being made to celebrate every version of you. 💞</p>
+    <div class="actions">
+      <button id="reveal">Open a tiny secret ✨</button>
+      <button class="secondary" id="install-help">Add to Home Screen</button>
+    </div>
+    <p id="secret" class="note hidden">Secret #1: You make ordinary days feel like something worth remembering. ♡</p>
+    <p id="install-instructions" class="note hidden">On her iPhone: open this website in Safari → tap Share → choose “Add to Home Screen”. We'll enable push notifications in the next stage after the site is hosted securely.</p>
+  </section>
+  <footer>Made with intention, a little mischief, and a lot of love.</footer>
+</main>
+<script>
+  // Set the target birthday here. Month is zero-based: 10 = November.
+  // Change the year/date to the birthday you want to celebrate.
+  const BIRTHDAY = new Date(2026, 10, 3, 0, 0, 0);
+
+  function updateCountdown() {
+    const diff = Math.max(0, BIRTHDAY.getTime() - Date.now());
+    const values = {
+      days: Math.floor(diff / 86400000),
+      hours: Math.floor((diff % 86400000) / 3600000),
+      minutes: Math.floor((diff % 3600000) / 60000),
+      seconds: Math.floor((diff % 60000) / 1000)
+    };
+    for (const [id, value] of Object.entries(values)) {
+      document.getElementById(id).textContent = String(value).padStart(2, "0");
+    }
+    if (diff === 0) document.getElementById("countdown-title").textContent = "Today is your day! 🎂";
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  document.getElementById("reveal").addEventListener("click", () => {
+    document.getElementById("secret").classList.toggle("hidden");
+  });
+  document.getElementById("install-help").addEventListener("click", () => {
+    document.getElementById("install-instructions").classList.toggle("hidden");
+  });
+
+  if ("serviceWorker" in navigator && location.protocol.startsWith("https")) {
+    window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(console.error));
+  }
+</script>
+</body>
+</html>
