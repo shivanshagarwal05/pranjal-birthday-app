@@ -1,6 +1,6 @@
 /* Standards-based Web Push service worker. A push must always display a notification. */
-const CACHE = 'punnu-birthday-v9';
-const SHELL = ['./','./index.html','./styles.css','./chapter06.css','./app.js','./chapter06.js','./chapter07_12.css','./chapter07_12.js','./config.js','./manifest.json','./assets/icon-192.png'];
+const CACHE = 'punnu-birthday-v10';
+const SHELL = ['./','./index.html','./styles.css','./chapter06.css','./app.js','./chapter06.js','./chapter07_12.css','./chapter07_12.js','./config.js','./manifest.json','./assets/icon-192.png','./assets/song-clues/mere-haath-mein.jpg','./assets/song-clues/chaiyya-chaiyya.jpg','./assets/song-clues/tip-tip-barsa-pani.jpg','./assets/song-clues/ek-ladki-ko-dekha.jpg','./assets/song-clues/perfect-punnu.jpg'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL)).then(() => self.skipWaiting()));
 });

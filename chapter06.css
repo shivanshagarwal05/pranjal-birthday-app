@@ -66,3 +66,6 @@
 .brain-song-photo{display:block;width:100%;aspect-ratio:340/190;object-fit:cover;object-position:center;background:#594262}
 .brain-song-fallback[hidden],.brain-song-photo[hidden]{display:none!important}
 .brain-song-fallback svg{display:block;width:100%;height:auto;aspect-ratio:340/190}
+
+/* Bundled song stills: keep original aspect ratio where possible; show the personal portrait in full. */
+.brain-song-photo.brain-song-portrait{aspect-ratio:4/5;object-fit:contain;background:#302137}

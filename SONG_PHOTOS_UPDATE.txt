@@ -1,0 +1,8 @@
+CHAPTER 06 SONG PHOTOS — UPDATED
+
+Images are bundled under assets/song-clues/ and referenced by chapter06.js.
+Mere Haath Mein, Chaiyya Chaiyya, Tip Tip Barsa Pani, Ek Ladki Ko Dekha, and Perfect (personal photo).
+Image captions do not disclose answers. Existing optional Hindi hints remain.
+No Firebase, chapter publishing, or notification settings changed.
+
+For GitHub, upload chapter06.js, chapter06.css, sw.js and the complete assets/song-clues folder.
