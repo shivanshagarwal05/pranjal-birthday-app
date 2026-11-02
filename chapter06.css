@@ -1,0 +1,63 @@
+/* Chapter 06: self-contained mobile-first game stage. */
+.brain-game{--night:#291b33;--night2:#4c2b4b;--cream:#fff4e9;--pink:#ffc3d5;--hot:#dd668d;--gold:#f4c68a;position:relative;isolation:isolate;overflow:hidden;margin:24px -8px 2px;padding:22px 16px;border-radius:25px;color:var(--cream);background:radial-gradient(circle at 15% 3%,#6c3d60 0%,transparent 33%),radial-gradient(circle at 94% 90%,#633a63 0%,transparent 40%),linear-gradient(160deg,var(--night),#251628 75%);box-shadow:0 20px 44px rgba(58,29,50,.24);font-family:var(--sans)}
+.brain-game:before{content:'✦  ♡     ✧       ✦     ♡';position:absolute;top:9px;right:20px;opacity:.3;color:#ffbdd0;letter-spacing:12px;font-size:14px;pointer-events:none}
+.brain-game button{touch-action:manipulation}
+.brain-spotlight{text-align:center;padding:26px 9px 28px;position:relative;z-index:1}
+.brain-eyebrow,.brain-top-label{font-size:10px;font-weight:700;letter-spacing:.15em;color:#ffd0df}
+.brain-spotlight h2{font-family:var(--serif);font-size:clamp(26px,5vw,39px);line-height:1.22;font-weight:500;color:#fff6ed;margin:14px 0}
+.brain-spotlight h2 em{color:#ffc3d5;font-weight:400}
+.brain-spotlight>p:not(.brain-eyebrow){font-size:13px;line-height:1.8;color:#f7dce8;max-width:440px;margin:14px auto}
+.brain-bear{font-size:76px;line-height:1.15;position:relative;display:inline-block;filter:drop-shadow(0 8px 12px #190d20);animation:brain-bob 3s ease-in-out infinite}
+.brain-mic{position:absolute;right:-16px;bottom:2px;font-size:27px;transform:rotate(-25deg)}
+.brain-pills{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin:19px auto}
+.brain-pills span{background:#ffffff12;border:1px solid #f7bad448;border-radius:50px;padding:7px 9px;font-size:10px;color:#ffe3e8}
+.brain-muted{font-size:11px!important;line-height:1.7;color:#e7b9cf!important}
+.brain-primary,.brain-secondary,.brain-hint-button{border-radius:99px;border:1px solid #f1a7c3;min-height:43px;padding:11px 18px;font-weight:700;font-size:12px;transition:transform .15s ease;background:linear-gradient(145deg,#f69fc1,#ca557f);color:#351d33;box-shadow:0 7px 20px #14091544}
+.brain-primary:hover,.brain-secondary:hover,.brain-hint-button:hover{transform:translateY(-2px)}
+.brain-secondary{background:#ffffff12;color:#fff1f6;box-shadow:none;border-color:#d8a6c5aa}
+.brain-hint-button{background:transparent;border:0;color:#ffd7a9;min-height:32px;padding:4px 7px;box-shadow:none}
+.brain-round-icon{font-size:58px;margin:9px 0}
+.brain-round-intro .brain-bear{display:block;margin:12px auto 18px}
+.brain-top{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:4px 3px 12px}
+.brain-counter{color:#ffdfb4;font-size:12px;font-weight:700;white-space:nowrap}
+.brain-meter{height:7px;border-radius:99px;overflow:hidden;background:#ffffff2a;margin-bottom:16px}
+.brain-meter span{height:100%;display:block;background:linear-gradient(90deg,#f2adbe,#f4d09b);border-radius:99px;transition:width .2s}
+.brain-roundtag{font-size:10px;letter-spacing:.1em;color:#ffc4d4;margin-bottom:12px}
+.brain-question-card{border-radius:20px;border:1px solid #f4c2d455;background:linear-gradient(145deg,#ffffff13,#ffffff06);padding:16px 13px 20px;box-shadow:0 12px 35px #180b2333}
+.brain-question-number{font-size:10px;letter-spacing:.16em;color:#f9c8d7;text-align:center;margin-bottom:8px}
+.brain-question-card h3{font-family:var(--serif);font-size:clamp(20px,5vw,27px);font-weight:500;color:#fff1ec;text-align:center;margin:8px 0 15px}
+.brain-food{position:relative;width:min(100%,340px);aspect-ratio:1.2;margin:8px auto 17px;overflow:hidden;border:4px solid #ffe5e7;border-radius:15px;background:#ffe7d9}
+.brain-food img{width:100%;height:100%;object-fit:cover;display:block;user-select:none}
+.brain-tiles{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);gap:2px}
+.brain-tile{display:grid;place-items:center;min-width:0;min-height:0;padding:0;border:1px solid #ffb9d6;border-radius:5px;background:linear-gradient(135deg,#8c506f,#593350);color:#fbd5de;font-size:23px;box-shadow:inset 0 0 20px #ffffff0b;transition:opacity .3s,transform .3s}
+.brain-tile.open{opacity:0;pointer-events:none;transform:scale(.88)}
+.brain-emoji{background:#fff5eb;border:1px solid #fbd9dc;border-radius:17px;color:#2d2236;font-size:clamp(32px,8vw,48px);text-align:center;letter-spacing:3px;padding:24px 7px;line-height:1.6;margin:10px auto 18px;max-width:420px;overflow-wrap:anywhere}
+.brain-song-art{width:min(100%,400px);margin:10px auto 15px;border:3px solid #f6d2d8;border-radius:17px;overflow:hidden;background:#594262;box-shadow:0 8px 18px #15091b88}
+.brain-song-art svg{display:block;width:100%;height:auto;aspect-ratio:340/190}
+.brain-fun-icon{text-align:center;font-size:49px;margin:23px 0}
+.brain-input-label{display:block;font-size:11px;font-weight:700;color:#ffe0e9;margin:13px 0 8px}
+.brain-answer{display:block;width:100%;border-radius:12px;border:1px solid #f2bfd3;padding:14px 15px;background:#fff8f2;color:#4e2e43;min-height:48px;font-size:15px;outline:none}
+.brain-answer:focus{outline:3px solid #f4a6c8;outline-offset:2px}
+.brain-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px}
+.brain-actions button{flex:1 1 150px}
+.brain-hint-wrap{margin-top:10px;text-align:center}
+.brain-hint{background:#ffe4cb;color:#5a3c42;font-size:12px;line-height:1.6;padding:12px;border-radius:12px;margin:6px auto;max-width:440px}
+.brain-visual-first{text-align:center;margin:0 auto 14px!important}
+.brain-feedback{background:#fff0e7;color:#623c51;border-radius:16px;padding:17px;margin:13px 0;line-height:1.65;font-size:13px}
+.brain-feedback.brain-good{background:#ffe5ee}
+.brain-feedback strong{color:#6b2d50}
+.brain-feedback p{margin:8px 0 0}
+.brain-next{width:100%}
+.brain-score{display:flex;justify-content:space-between;gap:9px;flex-wrap:wrap;color:#ffe1ae;font-size:11px;margin-top:13px}
+.brain-score span{color:#f6c9dc}
+.brain-envelope{display:flex;flex-direction:column;align-items:center;gap:9px;margin:20px auto 5px;background:linear-gradient(140deg,#ffe4eb,#f8a7c2);border:1px solid #ffe1e9;border-radius:17px;padding:19px 28px;color:#6b3353;font-size:14px;box-shadow:0 12px 30px #13091b77}
+.brain-envelope span{font-size:50px}
+.brain-letter{text-align:left;max-width:530px;margin:19px auto 23px;padding:22px 20px;background:#fff9f1;border-radius:15px;color:#6d4055;box-shadow:0 8px 20px #10071655;transform:rotate(-.4deg)}
+.brain-letter p{font-size:13px;line-height:1.85;margin:0 0 13px}
+.brain-letter strong{color:#9e466d}
+.brain-letter .brain-sign{text-align:right;font-family:var(--serif);font-style:italic;font-size:16px;margin-top:22px}
+@keyframes brain-bob{0%,100%{transform:rotate(-3deg) translateY(0)}50%{transform:rotate(3deg) translateY(-5px)}}
+@media(min-width:640px){.brain-game{padding:25px 24px}.brain-question-card{padding:22px 26px}.brain-food{width:370px}.brain-spotlight{padding:34px 16px}}
+@media(prefers-reduced-motion:reduce){.brain-bear,.brain-tile{animation:none;transition:none}}
+
+.brain-image-unavailable:after{content:"Photo unavailable — connect to the internet and refresh";position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:18px;color:#64354d;background:#ffe7d9;font-size:13px;font-weight:700}

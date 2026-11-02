@@ -1,0 +1,11 @@
+PAST CHAPTERS ONLY — REVIEW BUILD
+
+No GitHub upload or Firebase change has been performed.
+Public: only the currently published chapter and earlier chapters appear, in chronological order.
+On first load or when a new chapter publishes, automatically jump to latest.
+Scroll up to revisit old chapters, or tap Latest 💗 to return.
+No future chapters or teaser cards are rendered in public UI.
+Admin private preview can still inspect all drafts.
+Important: previous chapters are reconstructed from the bundled LOCAL_DEMO definitions. If you customized their text in Firebase, the historical display may differ. A future archive collection would require Firebase rules changes; none were made.
+Existing Firebase config and OneSignal files preserved. No WhatsApp or five-minute timer.
+Test privately before upload.
