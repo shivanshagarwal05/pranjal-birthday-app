@@ -69,3 +69,8 @@
 
 /* Bundled song stills: keep original aspect ratio where possible; show the personal portrait in full. */
 .brain-song-photo.brain-song-portrait{aspect-ratio:4/5;object-fit:contain;background:#302137}
+
+/* Final photographic song clues: all five photos are embedded in chapter06.js. */
+.brain-song-art{max-width:400px}
+.brain-song-photo{display:block;width:100%;height:auto;aspect-ratio:340/190;object-fit:contain;background:#33243c}
+.brain-song-photo.brain-song-portrait{aspect-ratio:4/5;object-fit:contain}

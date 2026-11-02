@@ -47,3 +47,6 @@
 - Gift QR and dinner/packing choices are local to the browser; not stored in Firestore or automatically reported to the admin.
 - This package has been syntax-checked and the QR images decoded, but actual Firebase rules, admin auth, OneSignal delivery and iPhone rendering require real-device verification.
 - Avoid pressing **Reset to Chapter 1**, **Publish selected chapter NOW**, or sending OneSignal pushes during private testing.
+
+## Photo fix (final)
+Five supplied song stills are now embedded directly into chapter06.js, so no external song image URLs or illustration fallback can appear when the latest JavaScript is loaded. New index/app version query and service worker cache v11 bust old cached modules. On installed iPhones, close/reopen the PWA; if old artwork persists, clear website data/reinstall only after ensuring OneSignal subscription will be restored.

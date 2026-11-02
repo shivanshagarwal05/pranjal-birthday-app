@@ -1,4 +1,4 @@
-import {renderGame,handleGame} from './chapter06.js';
+import {renderGame,handleGame} from './chapter06.js?v=photo-final-20261102';
 import {renderAdventure,handleAdventure,handlePackChange} from './chapter07_12.js';
 const config = window.PUNNU_CONFIG || {};
 const hasFirebase = Boolean(config.firebase?.apiKey && config.firebase?.projectId && config.firebase?.appId);
