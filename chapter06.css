@@ -61,3 +61,8 @@
 @media(prefers-reduced-motion:reduce){.brain-bear,.brain-tile{animation:none;transition:none}}
 
 .brain-image-unavailable:after{content:"Photo unavailable — connect to the internet and refresh";position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:18px;color:#64354d;background:#ffe7d9;font-size:13px;font-weight:700}
+
+/* Official music-video stills: responsive on iPhone; original SVG remains a fallback. */
+.brain-song-photo{display:block;width:100%;aspect-ratio:340/190;object-fit:cover;object-position:center;background:#594262}
+.brain-song-fallback[hidden],.brain-song-photo[hidden]{display:none!important}
+.brain-song-fallback svg{display:block;width:100%;height:auto;aspect-ratio:340/190}

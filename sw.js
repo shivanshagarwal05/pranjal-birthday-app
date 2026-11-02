@@ -1,5 +1,5 @@
 /* Standards-based Web Push service worker. A push must always display a notification. */
-const CACHE = 'punnu-birthday-v8';
+const CACHE = 'punnu-birthday-v9';
 const SHELL = ['./','./index.html','./styles.css','./chapter06.css','./app.js','./chapter06.js','./chapter07_12.css','./chapter07_12.js','./config.js','./manifest.json','./assets/icon-192.png'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL)).then(() => self.skipWaiting()));
